@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       docker_images:
-        description: 'nvidia/cuda:12.4.1-devel-ubuntu22.04'
+        description: 'dockercore/docker'
         required: true
-        default: 'nvidia/cuda:12.4.1-devel-ubuntu22.04'  # 设置默认的 Docker 镜像列表
+        default: 'dockercore/docker'  # 设置默认的 Docker 镜像列表
 
 jobs:
   pull_and_package:
@@ -35,8 +35,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: docker-images-tar
-        path: x86-64-images.tar.gz
+        name: dockercore-docker-docker-images-tar
+        path: dockercore-docker-x86-64-images.tar.gz
         retention-days: 1  # 将保留天数设置为 1 天 最多可设置90天
 
     - name: Clean up intermediate files
